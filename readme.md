@@ -45,3 +45,7 @@ cd party-planner
 ## Acesse a aplicação:
 
 Abra o navegador e acesse http://localhost:3000.
+
+## GIF do projeto.
+
+![gif do projeto](NewProject.gif)
