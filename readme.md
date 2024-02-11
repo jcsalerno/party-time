@@ -40,7 +40,7 @@ cd party-planner
 ## Inicie o servidor front-end:
 
 - cd frontend
-- npm start
+- npm run dev
 
 ## Acesse a aplicação:
 
