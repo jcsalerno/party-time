@@ -1,11 +1,15 @@
 import partyFetch from "../axios/config";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import useToast from "../hook/useToast";
+import "./Party.css";
 
 const Party = () => {
   const { id } = useParams();
 
   const [party, setParty] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadParty = async () => {
@@ -19,13 +23,26 @@ const Party = () => {
     loadParty();
   }, []);
 
+  const handleDelete = async () => {
+    const res = await partyFetch.delete(`/parties/${id}`);
+
+    if (res.status === 200) {
+      navigate("/");
+      useToast(res.data.msg);
+    }
+  };
+
   if (!party) return <p>Carregando...</p>;
   return (
     <div className="party">
       <h1>{party.title}</h1>
       <div className="actions-container">
-        <Link className="btn">Editar</Link>
-        <button className="btn-secondary">Excluir</button>
+        <Link to={`/party/edit/${party._id}`} className="btn">
+          Editar
+        </Link>
+        <button onClick={handleDelete} className="btn-secondary">
+          Excluir
+        </button>
       </div>
       <p>Orçamento: R${party.budget}</p>
       <h3>Serviços contratados:</h3>
