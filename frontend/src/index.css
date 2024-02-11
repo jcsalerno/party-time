@@ -24,3 +24,24 @@ a {
 p {
   color: #749790;
 }
+
+.btn,
+.btn-secondary {
+  background-color: #7703fc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: 0.4s;
+  cursor: pointer;
+  display: block;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #283252;
+  border: 1px solid #cfcfcf;
+}
